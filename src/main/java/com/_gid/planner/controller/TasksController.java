@@ -38,7 +38,7 @@ public class TasksController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Tasks> updateTask(@PathVariable Integer id, @RequestBody Tasks task) {
-        if (!tasksService.getTaskById(id).isPresent()) {
+        if (tasksService.getTaskById(id).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         task.setId(id);
@@ -47,7 +47,7 @@ public class TasksController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTask(@PathVariable Integer id) {
-        if (!tasksService.getTaskById(id).isPresent()) {
+        if (tasksService.getTaskById(id).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         tasksService.deleteTask(id);
