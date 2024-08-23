@@ -53,4 +53,30 @@ public class TasksController {
         tasksService.deleteTask(id);
         return ResponseEntity.noContent().build();
     }
+
+    // it will get the all the data through the project id
+    @GetMapping("projects/{id}")
+    public List<Tasks> getByProjectId(@PathVariable("id") Integer projectId)
+    {
+        return tasksService.getTaskByProjectId(projectId);
+    }
+
+    //it will get the data by user id
+    //methods names are all ways like as variable name like UserId(variable)  method for this
+    //if the variable name is user_id  need to match the method and variable method like getByUser_id(Integer user_id23)
+    @GetMapping("user/{id}")
+    public List<Tasks> getByUserId(@PathVariable("id") Integer userId)
+    {
+        return tasksService.getTaskByUserId(userId);
+
+    }
+
+    //get the tasks by project id and user id if the both value are present in the row it will show task data else data will not showing
+    @GetMapping("/projects/{pid}/user/{uid}")
+    public List<Tasks> getTaskByProjectIdAndUserId(@PathVariable("pid") Integer projectId, @PathVariable("uid") Integer userId)
+    {
+        return tasksService.getTaskByProjectIdAndUserId(projectId,userId);
+
+    }
+
 }
