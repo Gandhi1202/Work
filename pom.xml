@@ -11,6 +11,7 @@
 	<groupId>com.4gid</groupId>
 	<artifactId>planner</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+		<packaging>jar</packaging>
 	<name>planner</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -28,7 +29,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<packaging>jar</packaging>
+	
 	</properties>
 	<dependencies>
 		<dependency>
